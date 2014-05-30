@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root :controller => 'static_pages', :action => 'home' 
+  
   resources :sightings
 
   resources :bikes
