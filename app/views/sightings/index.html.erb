@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Bike #</th>
       <th>Lat</th>
       <th>Long</th>
       <th>Time</th>
@@ -13,6 +14,7 @@
   <tbody>
     <% @sightings.each do |sighting| %>
       <tr>
+        <td><%= link_to sighting.bike.number, bike_path(sighting.bike) %></td>
         <td><%= sighting.lat %></td>
         <td><%= sighting.long %></td>
         <td><%= sighting.time %></td>
