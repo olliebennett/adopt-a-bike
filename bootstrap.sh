@@ -37,6 +37,9 @@ gem install execjs
 # NodeJS (JavaScript runtime)
 apt-get install -y nodejs
 
+# ImageMagick (required for identifying / validating image uploads)
+apt-get install -y libmagickwand-dev imagemagick
+
 # Move to the /vagrant (shared) directory.
 cd /vagrant
 
