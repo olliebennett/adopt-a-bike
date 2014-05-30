@@ -15,6 +15,8 @@ Adopt a Barclays Bike!
 
 6. Get alerts when your bike is nearby, or visits your home station.
 
+7. Review bikes for their attitude/speed/cleanliness/loyalty etc.
+
 Built in Rails by [Ollie Bennett](http://olliebennett.co.uk/).
 
 ## Installation
