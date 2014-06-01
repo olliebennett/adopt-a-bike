@@ -49,6 +49,14 @@ Visit [`localhost:3000`](http://localhost:3000/) !
 
 ## Notes
 
+### Mailcatcher
+
+Start `mailcatcher` to view all sent emails at [`localhost:1080`](http://localhost:1080/).
+
+The `--http-ip` parameter is required to route out of the vagrant box:
+
+	mailcatcher --http-ip=0.0.0.0
+
 ### Database Migrations
 
 Run the following to migrate data after any schema changes:
