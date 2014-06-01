@@ -10,12 +10,19 @@
 
   <h1>Adopt-a-Bike</h1>
 
+  <nav>
+    <a href="/">home</a> 
+    | <a href="/bikes">bikes</a> 
+    | <a href="/sightings">sightings</a>
+    <% if user_signed_in? %>
+    | <%= link_to('LOGOUT', destroy_user_session_path, :method => :delete) %>        
+    <% else %>
+    | <%= link_to('LOGIN', new_user_session_path)  %>  
+    <% end %>
+  </nav>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-  <nav>
-    <a href="/">home</a> | <a href="/bikes">bikes</a> | <a href="/sightings">sightings</a>
-  </nav>
 
   <%= yield %>
 
