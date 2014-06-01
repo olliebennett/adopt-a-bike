@@ -29,6 +29,9 @@ gem 'spring',        group: :development
 # Paperclip for storing files with ActiveRecord
 gem 'paperclip'
 
+# User authentication
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

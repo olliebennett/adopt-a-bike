@@ -8,13 +8,16 @@
 </head>
 <body>
 
-	<h1>Adopt-a-Bike</h1>
+  <h1>Adopt-a-Bike</h1>
 
-	<nav>
-		<a href="/">home</a> | <a href="/bikes">bikes</a> | <a href="/sightings">sightings</a>
-	</nav>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
-	<%= yield %>
+  <nav>
+    <a href="/">home</a> | <a href="/bikes">bikes</a> | <a href="/sightings">sightings</a>
+  </nav>
+
+  <%= yield %>
 
 </body>
 </html>
