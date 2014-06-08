@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'stations/populate' => 'stations#populate'
+  resources :stations
+
   root :controller => 'static_pages', :action => 'home' 
 
   resources :sightings

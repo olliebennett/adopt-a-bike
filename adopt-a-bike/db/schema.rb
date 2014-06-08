@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601145733) do
+ActiveRecord::Schema.define(version: 20140603213855) do
 
   create_table "bikes", force: true do |t|
     t.string   "name"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20140601145733) do
   end
 
   add_index "sightings", ["bike_id"], name: "index_sightings_on_bike_id"
+
+  create_table "stations", force: true do |t|
+    t.float    "lat"
+    t.float    "long"
+    t.string   "name"
+    t.integer  "num_docks"
+    t.integer  "tfl_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
