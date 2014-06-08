@@ -1,30 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AdoptABike</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+
+  <title>Adopt-A-Bike</title>
+  
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+
 </head>
 <body>
 
-  <h1>Adopt-a-Bike</h1>
+  <div class="container">
 
-  <nav>
-    <a href="/">home</a> 
-    | <a href="/bikes">bikes</a> 
-    | <a href="/sightings">sightings</a>
-    <% if user_signed_in? %>
-    | <%= link_to('LOGOUT', destroy_user_session_path, :method => :delete) %>        
-    <% else %>
-    | <%= link_to('LOGIN', new_user_session_path)  %>  
-    <% end %>
-  </nav>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Adopt-A-Bike</a>
+        </div>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="/">Home</a></li> -->
+            <li><a href="/bikes">Bikes</a></li>
+            <li><a href="/sightings">Sightings</a></li>
+            <li><a href="/stations">Stations</a></li>
+          </ul>
 
-  <%= yield %>
+          <ul class="nav navbar-nav navbar-right">
+<% if user_signed_in? %>
+            <li><%= link_to('LOGOUT', destroy_user_session_path, :method => :delete) %></li>
+<% else %>
+            <li><%= link_to('LOGIN', new_user_session_path)  %></li>
+<% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+  </div><!-- /.container -->
 
 </body>
 </html>
