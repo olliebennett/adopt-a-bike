@@ -9,7 +9,6 @@ class StationsController < ApplicationController
 
   # GET /stations/populate
   def populate
-    # http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml
 
     require 'net/http'
     require 'rubygems'
@@ -35,19 +34,11 @@ class StationsController < ApplicationController
         :num_docks => station["nbDocks"][0]
       )
       @s.save
+
+      # Small pause in order to avoid problems hammering database (eg. with SQLite)
       sleep(0.1)
 
     end
-
-    # doc = Nokogiri::XML(open('http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml'))
-
-    #puts doc
-
-    # Search for nodes by xpath
-    # doc.xpath('//stations/station').each do |station|
-    #   puts station[0].to_s
-
-    # end
 
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Stations successfully populated.' }
