@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Lat</th>
       <th>Long</th>
       <th>Name</th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @stations.each do |station| %>
       <tr>
+        <td><%= station.tfl_id %></td>
         <td><%= station.lat %></td>
         <td><%= station.long %></td>
         <td><%= station.name %></td>

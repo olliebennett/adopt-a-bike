@@ -73,7 +73,7 @@ class StationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_station
-      @station = Station.find(params[:id])
+      @station = Station.find_by(tfl_id: params[:tfl_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
