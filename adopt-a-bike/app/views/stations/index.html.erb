@@ -8,21 +8,17 @@
       <th>Long</th>
       <th>Name</th>
       <th>Num docks</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @stations.each do |station| %>
       <tr>
-        <td><%= station.tfl_id %></td>
+        <td><%= link_to station.tfl_id, station %></td>
         <td><%= station.lat %></td>
         <td><%= station.long %></td>
-        <td><%= station.name %></td>
+        <td><%= link_to station.name, station %></td>
         <td><%= station.num_docks %></td>
-        <td><%= link_to 'Show', station %></td>
-        <td><%= link_to 'Edit', edit_station_path(station) %></td>
-        <td><%= link_to 'Destroy', station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,6 +26,6 @@
 
 <br>
 
-<%= link_to 'New Station', new_station_path %>
+<p>Note: The station IDs are from TfL - they are not (necessarily) consecutive.</p>
 
-<%= link_to 'RE-POPULATE', (stations_path + "/populate") %>
+<p>To (re-)populate stations, run <code>rake populate:stations</code>.</p>
