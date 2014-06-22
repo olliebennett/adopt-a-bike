@@ -10,38 +10,8 @@ class StationsController < ApplicationController
   # GET /stations/populate
   def populate
 
-    require 'net/http'
-    require 'rubygems'
-    require 'xmlsimple'
-
-    url = 'http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml'
-    xml_data = Net::HTTP.get_response(URI.parse(url)).body
-
-    stations = XmlSimple.xml_in(xml_data)
-
-    stations['station'].each do |station|
-
-      tfl_id = station["id"]
-      name = station["name"]
-
-      puts "Processing ID = #{tfl_id}. Name = #{name}..."
-
-      @s = Station.new(
-        :tfl_id => station["id"][0],
-        :name => station["name"][0],
-        :lat => station["lat"][0],
-        :long => station["long"][0],
-        :num_docks => station["nbDocks"][0]
-      )
-      @s.save
-
-      # Small pause in order to avoid problems hammering database (eg. with SQLite)
-      sleep(0.1)
-
-    end
-
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Stations successfully populated.' }
+      format.html { redirect_to root_path, notice: 'Use "rake populate:stations"' }
     end
 
   end
