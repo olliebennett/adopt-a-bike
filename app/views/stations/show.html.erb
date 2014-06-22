@@ -1,23 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>ID:</strong>
-  <%= @station.tfl_id %>
-</p>
+<h2>
+  Station #<%= @station.tfl_id %> : <strong><%= @station.name %></strong>
+</h2>
+
+<img src="http://maps.googleapis.com/maps/api/staticmap?size=500x400&amp;zoom=15&amp;markers=color:blue%7C<%= @station.lat %>,<%= @station.long %>" alt="Map View" class="img-thumbnail" />
 
 <p>
-  <strong>Lat:</strong>
-  <%= @station.lat %>
-</p>
-
-<p>
-  <strong>Long:</strong>
-  <%= @station.long %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @station.name %>
+  <strong>Location:</strong>
+  {<%= @station.lat %>, <%= @station.long %>}
 </p>
 
 <p>
@@ -25,5 +16,6 @@
   <%= @station.num_docks %>
 </p>
 
-<%= link_to 'Edit', edit_station_path(@station) %> |
-<%= link_to 'Back', stations_path %>
+<p>
+	<%= link_to 'View All Stations', stations_path %>
+</p>
