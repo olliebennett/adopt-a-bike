@@ -1,6 +1,8 @@
 Adopt a Bike
 ============
 
+[![Code Climate](https://codeclimate.com/github/olliebennett/adopt-a-bike.png)](https://codeclimate.com/github/olliebennett/adopt-a-bike)
+
 Adopt a Barclays Bike!
 
 1. Find a bike you like.
