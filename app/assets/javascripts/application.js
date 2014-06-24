@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// Clickable Tables
+$('table.table-clickable > tbody > tr').click(function() {
+  // Get link from first <td> element and go there!
+  var url = $(this).children(":first").find("a").attr('href');
+  //console.log("Row URL: " + url);
+  if (typeof url !== "undefined") {
+  	window.location.href = url;
+  }
+});
