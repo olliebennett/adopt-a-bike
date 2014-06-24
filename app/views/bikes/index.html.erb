@@ -1,22 +1,16 @@
-<h1>Listing bikes</h1>
+<h1>Bikes</h1>
 
-<table>
+<table class="table table-condensed table-hover table-clickable">
   <thead>
     <tr>
-      <th>Name</th>
       <th>Number</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @bikes.each do |bike| %>
       <tr>
-        <td><%= bike.name %></td>
-        <td><%= bike.number %></td>
-        <td><%= link_to 'Show', bike %></td>
-        <td><%= link_to 'Edit', edit_bike_path(bike) %></td>
-        <td><%= link_to 'Destroy', bike, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to bike.number, bike %></td>
       </tr>
     <% end %>
   </tbody>
