@@ -1,6 +1,9 @@
-<h1>Listing stations</h1>
+<h1>Stations</h1>
 
-<table>
+<% if @stations.size() > 0 %>
+<p>There are <b><%= @stations.size() %></b> stations.</p>
+
+<table class="table table-condensed table-hover">
   <thead>
     <tr>
       <th>ID</th>
@@ -23,9 +26,12 @@
     <% end %>
   </tbody>
 </table>
+<% else %>
+<div class="alert alert-warning">
+  <strong>Warning!</strong> No stations found. Run rake task <code>stations:populate</code> to populate them.
+</div>
+<% end %>
 
-<br>
+<p>Note: The Station IDs are from <acronym title="Transport for London">TfL</acronym> - they are not (necessarily) consecutive.</p>
 
-<p>Note: The station IDs are from TfL - they are not (necessarily) consecutive.</p>
-
-<p>To (re-)populate stations, run <code>rake populate:stations</code>.</p>
+<p>To (re-)populate stations, run <code>rake stations:populate</code>.</p>
