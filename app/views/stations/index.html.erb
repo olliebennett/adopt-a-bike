@@ -1,14 +1,16 @@
 <h1>Stations</h1>
 
 <% if @stations.size() > 0 %>
-<p>There are <b><%= @stations.size() %></b> stations.</p>
 
-<table class="table table-condensed table-hover">
+<p><%= page_entries_info @stations %></p>
+
+<%= will_paginate @stations, renderer: BootstrapPagination::Rails, previous_label: "<", next_label: ">" %>
+
+<table id="stations-table" class="table table-condensed table-hover table-clickable">
   <thead>
     <tr>
       <th>ID</th>
-      <th>Lat</th>
-      <th>Long</th>
+      <th>Location</th>
       <th>Name</th>
       <th>Num docks</th>
     </tr>
@@ -17,10 +19,9 @@
   <tbody>
     <% @stations.each do |station| %>
       <tr>
-        <td><%= link_to station.tfl_id, station %></td>
-        <td><%= station.lat %></td>
-        <td><%= station.long %></td>
-        <td><%= link_to station.name, station %></td>
+        <td><%= link_to '%03i' % station.tfl_id, station %></td>
+        <td><%= '%.6f' % station.lat %>, <%= '%.6f' % station.long %></td>
+        <td><%= station.name %></td>
         <td><%= station.num_docks %></td>
       </tr>
     <% end %>

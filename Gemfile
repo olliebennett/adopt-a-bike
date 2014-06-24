@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Paperclip for storing files with ActiveRecord
 gem 'paperclip'
 
+# Pagination
+gem 'will_paginate-bootstrap'
+
 # User authentication
 gem 'devise'
 
