@@ -1,8 +1,8 @@
-namespace :populate do
+namespace :stations do
 
-  desc "Populate the list of Barclays Bike stations"
+  desc "Manipulate Barclays Bike stations"
 
-  task stations: :environment do
+  task populate: :environment do
 
     require 'net/http'
     require 'rubygems'
@@ -20,10 +20,6 @@ namespace :populate do
 
     num_stations= stations['station'].size   #or $param.size
     puts "Fetched #{num_stations} stations."
-
-    existing_stations = Station.all
-    puts "Removing all #{existing_stations.length} existing stations..."
-    existing_stations.delete_all
 
     puts "Inserting retrieved stations."
 
@@ -52,6 +48,16 @@ namespace :populate do
     end
 
     puts "Stations successfully populated."
+
+  end
+
+  task clear: :environment do
+
+    puts "Removing all Barclays Bike Cycle Hire Stations"
+
+    existing_stations = Station.all
+    puts "Removing all #{existing_stations.length} existing stations..."
+    existing_stations.delete_all
 
   end
 
