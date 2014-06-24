@@ -30,13 +30,16 @@ namespace :populate do
     stations['station'].each do |station|
 
       tfl_id = station["id"][0]
-      name = station["name"][0]
+
+      # Workaround for some strange additional spaces in station names
+      # eg. "River Street , Clerkenwell" => "River Street, Clerkenwell"
+      name = station["name"][0].gsub(' ,', ',')
 
       puts sprintf("ID %3d : %s", tfl_id, name)
 
       @s = Station.new(
-        :tfl_id => station["id"][0],
-        :name => station["name"][0],
+        :tfl_id => tfl_id,
+        :name => name,
         :lat => station["lat"][0],
         :long => station["long"][0],
         :num_docks => station["nbDocks"][0]
