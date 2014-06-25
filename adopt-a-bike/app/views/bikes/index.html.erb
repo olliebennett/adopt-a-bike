@@ -1,6 +1,12 @@
 <h1>Bikes</h1>
 
-<table class="table table-condensed table-hover table-clickable">
+<% if @bikes.size() > 0 %>
+
+<p><%= page_entries_info @bikes %></p>
+
+<%= will_paginate @bikes, renderer: BootstrapPagination::Rails, previous_label: "<", next_label: ">" %>
+
+<table id="bikes-table" class="table table-condensed table-hover table-clickable">
   <thead>
     <tr>
       <th>Number</th>
@@ -15,7 +21,10 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
+<% else %>
+<div class="alert alert-warning">
+  <strong>Warning!</strong> No bikes found. Start by <%= link_to 'adding one', new_bike_path %>!
+</div>
+<% end %>
 
 <%= link_to 'New Bike', new_bike_path %>
