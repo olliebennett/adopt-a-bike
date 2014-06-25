@@ -21,6 +21,6 @@ $('table.table-clickable > tbody > tr').click(function() {
   var url = $(this).children(":first").find("a").attr('href');
   //console.log("Row URL: " + url);
   if (typeof url !== "undefined") {
-  	window.location.href = url;
+    window.location.href = url;
   }
 });
