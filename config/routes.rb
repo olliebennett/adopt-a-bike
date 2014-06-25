@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'stations/populate' => 'stations#populate'
-  resources :stations, param: :tfl_id
+  root :controller => 'static_pages', :action => 'home'
 
-  root :controller => 'static_pages', :action => 'home' 
+  # Change from /bikes/<id> to /bikes/<number> for clearer URLs
+  resources :bikes, param: :number
 
   resources :sightings
 
-  resources :bikes
+  # Change from /stations/<id> to /stations/<tfl_id> for clearer URLs
+  resources :stations, param: :tfl_id
 
   devise_for :users
 
