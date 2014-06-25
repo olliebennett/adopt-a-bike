@@ -4,7 +4,7 @@ class BikesController < ApplicationController
   # GET /bikes
   # GET /bikes.json
   def index
-    @bikes = Bike.all
+    @bikes = Bike.all.paginate(:page => params[:page]).order('number ASC').per_page(20)
   end
 
   # GET /bikes/1
