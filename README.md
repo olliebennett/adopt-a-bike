@@ -3,6 +3,8 @@ Adopt a Bike
 
 [![Code Climate](https://codeclimate.com/github/olliebennett/adopt-a-bike.png)](https://codeclimate.com/github/olliebennett/adopt-a-bike)
 
+Try it at [adopt-a-bike.herokuapp.com](http://adopt-a-bike.herokuapp.com/)!
+
 Adopt a Barclays Bike!
 
 1. Find a bike you like.
