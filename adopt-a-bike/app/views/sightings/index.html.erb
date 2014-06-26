@@ -1,9 +1,9 @@
 <h1>Listing sightings</h1>
 
-<table class="table table-condensed table-hover">
+<table class="table table-condensed table-hover table-clickable">
   <thead>
     <tr>
-      <th>Bike #</th>
+      <th>#</th>
       <th>Lat</th>
       <th>Long</th>
       <th>Time</th>
@@ -14,7 +14,7 @@
   <tbody>
     <% @sightings.each do |sighting| %>
       <tr>
-        <td><%= link_to sighting.bike.number, bike_path(sighting.bike) %></td>
+        <td><%= link_to sighting.id, sighting_path(sighting.id) %></td>
         <td><%= sighting.lat %></td>
         <td><%= sighting.long %></td>
         <td><%= sighting.time %></td>
