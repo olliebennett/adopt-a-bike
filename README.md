@@ -43,7 +43,7 @@ Tunnel into your new machine:
 
 Open the shared folder (from within the SSH session)
 
-	cd /vagrant/adopt-a-bike
+	cd /vagrant
 
 Start the Rails server:
 

@@ -41,7 +41,7 @@ apt-get install -y nodejs
 apt-get install -y libmagickwand-dev imagemagick
 
 # Move to the /vagrant (shared) directory.
-cd /vagrant/adopt-a-bike
+cd /vagrant
 
 # Use bundler to manage (Ruby) dependencies
 bundle install
