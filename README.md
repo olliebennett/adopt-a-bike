@@ -1,4 +1,4 @@
-Adopt a Bike
+[![Adopt a Bike](https://raw.githubusercontent.com/olliebennett/adopt-a-bike/master/app/assets/images/logo.png)](http://adopt-a-bike.herokuapp.com/)
 ============
 
 [![Code Climate](http://img.shields.io/codeclimate/github/olliebennett/adopt-a-bike.svg)](https://codeclimate.com/github/olliebennett/adopt-a-bike)
