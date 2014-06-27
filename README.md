@@ -2,6 +2,8 @@ Adopt a Bike
 ============
 
 [![Code Climate](https://codeclimate.com/github/olliebennett/adopt-a-bike.png)](https://codeclimate.com/github/olliebennett/adopt-a-bike)
+[![Dependency Status](https://gemnasium.com/olliebennett/adopt-a-bike.svg)](https://gemnasium.com/olliebennett/adopt-a-bike)
+
 
 Try it at [adopt-a-bike.herokuapp.com](http://adopt-a-bike.herokuapp.com/)!
 
