@@ -1,9 +1,9 @@
 Adopt a Bike
 ============
 
-[![Code Climate](https://codeclimate.com/github/olliebennett/adopt-a-bike.png)](https://codeclimate.com/github/olliebennett/adopt-a-bike)
-[![Dependency Status](https://gemnasium.com/olliebennett/adopt-a-bike.svg)](https://gemnasium.com/olliebennett/adopt-a-bike)
-
+[![Code Climate](http://img.shields.io/codeclimate/github/olliebennett/adopt-a-bike.svg)](https://codeclimate.com/github/olliebennett/adopt-a-bike)
+[![Dependency Status](http://img.shields.io/gemnasium/olliebennett/adopt-a-bike.svg)](https://gemnasium.com/olliebennett/adopt-a-bike)
+[![Open Issues](http://img.shields.io/github/issues/olliebennett/adopt-a-bike.svg)](https://github.com/olliebennett/adopt-a-bike/issues?state=open)
 
 Try it at [adopt-a-bike.herokuapp.com](http://adopt-a-bike.herokuapp.com/)!
 
