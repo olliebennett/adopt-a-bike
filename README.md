@@ -3,6 +3,7 @@
 
 [![Code Climate](http://img.shields.io/codeclimate/github/olliebennett/adopt-a-bike.svg)](https://codeclimate.com/github/olliebennett/adopt-a-bike)
 [![Dependency Status](http://img.shields.io/gemnasium/olliebennett/adopt-a-bike.svg)](https://gemnasium.com/olliebennett/adopt-a-bike)
+[![Build Status](http://img.shields.io/travis/olliebennett/adopt-a-bike.svg)](https://travis-ci.org/olliebennett/adopt-a-bike)
 [![Open Issues](http://img.shields.io/github/issues/olliebennett/adopt-a-bike.svg)](https://github.com/olliebennett/adopt-a-bike/issues?state=open)
 
 Try it at [adopt-a-bike.herokuapp.com](http://adopt-a-bike.herokuapp.com/)!
