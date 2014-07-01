@@ -24,7 +24,12 @@ class SightingsController < ApplicationController
   # POST /sightings
   # POST /sightings.json
   def create
-    @sighting = Sighting.new(sighting_params)
+
+    # Get the bike associated with this sighting
+    @bike = Bike.find_by(number: sighting_params[:bike_number])
+
+    # Add this sighting to the bike
+    @sighting = @bike.sightings.create(sighting_params)
 
     respond_to do |format|
       if @sighting.save
@@ -35,6 +40,7 @@ class SightingsController < ApplicationController
         format.json { render json: @sighting.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PATCH/PUT /sightings/1

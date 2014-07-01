@@ -1,19 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Bike ID:</strong>
-  <%= @sighting.bike_id %>
+  <strong>Sighting #:</strong>
+  <%= @sighting.id %>
 </p>
 
 <p>
-  <strong>Lat:</strong>
-  <%= @sighting.lat %>
+  <strong>Bike #:</strong>
+  <%= @sighting.bike_number %>
 </p>
 
+<img src="http://maps.googleapis.com/maps/api/staticmap?size=500x400&amp;zoom=15&amp;markers=color:blue%7C<%= @sighting.lat %>,<%= @sighting.long %>" alt="Map View" class="img-thumbnail" />
+
 <p>
-  <strong>Long:</strong>
-  <%= @sighting.long %>
+  <strong>Location:</strong>
+  {<%= '%.6f' % @sighting.lat %>, <%= '%.6f' % @sighting.long %>}
 </p>
+
 
 <p>
   <strong>Time:</strong>
@@ -21,10 +24,25 @@
 </p>
 
 <%= link_to 'Edit', edit_sighting_path(@sighting) %> |
+<%= link_to 'Destroy', sighting_path, method: :delete, data: { confirm: "Delete sighting?\nAre you sure?" } %> |
 <%= link_to 'Back', sightings_path %>
 
 <p>
   <strong>Photo:</strong>
   <%= link_to (image_tag @sighting.photo.url(:medium)), @sighting.photo.url(:original) %>
   (click image for original)
+</p>
+
+<p>
+  <b>File Name:</b>
+  <%= debug(@sighting.photo) %>
+</p>
+<p>
+  <b>Date:</b>
+  <%#= @sighting.photo.date %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%#= @sighting.photo.location_long %>
 </p>
