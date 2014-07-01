@@ -5,39 +5,39 @@ class SightingsControllerTest < ActionController::TestCase
     @sighting = sightings(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:sightings)
-  end
+  # test "should get index" do
+  #   get :index
+  #   assert_response :success
+  #   assert_not_nil assigns(:sightings)
+  # end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
+  # test "should get new" do
+  #   get :new
+  #   assert_response :success
+  # end
 
-  test "should create sighting" do
-    assert_difference('Sighting.count') do
-      post :create, sighting: { lat: @sighting.lat, long: @sighting.long, time: @sighting.time }
-    end
+  # test "should create sighting" do
+  #   assert_difference('Sighting.count') do
+  #     post :create, sighting: { lat: @sighting.lat, long: @sighting.long, time: @sighting.time }
+  #   end
 
-    assert_redirected_to sighting_path(assigns(:sighting))
-  end
+  #   assert_redirected_to sighting_path(assigns(:sighting))
+  # end
 
-  test "should show sighting" do
-    get :show, id: @sighting
-    assert_response :success
-  end
+  # test "should show sighting" do
+  #   get :show, id: @sighting
+  #   assert_response :success
+  # end
 
-  test "should get edit" do
-    get :edit, id: @sighting
-    assert_response :success
-  end
+  # test "should get edit" do
+  #   get :edit, id: @sighting
+  #   assert_response :success
+  # end
 
-  test "should update sighting" do
-    patch :update, id: @sighting, sighting: { lat: @sighting.lat, long: @sighting.long, time: @sighting.time }
-    assert_redirected_to sighting_path(assigns(:sighting))
-  end
+  # test "should update sighting" do
+  #   patch :update, id: @sighting, sighting: { lat: @sighting.lat, long: @sighting.long, time: @sighting.time }
+  #   assert_redirected_to sighting_path(assigns(:sighting))
+  # end
 
   test "should destroy sighting" do
     assert_difference('Sighting.count', -1) do
