@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.2'
+gem 'rails', '>= 4'
 
 # Database
 group :development, :test do
