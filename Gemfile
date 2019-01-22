@@ -5,15 +5,10 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 4'
 
-# Database
-group :development, :test do
-  gem 'sqlite3'
-end
-group :production do
-  # Use PostgreSQL for Heroku.
-  gem 'pg'
-  gem 'rails_12factor'
-end
+# PostgreSQL database
+gem 'pg'
+
+gem 'rails_12factor'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
