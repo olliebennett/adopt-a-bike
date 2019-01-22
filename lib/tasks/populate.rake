@@ -3,62 +3,49 @@ namespace :stations do
   desc "Manipulate Barclays Bike stations"
 
   task populate: :environment do
-
     require 'net/http'
-    require 'rubygems'
-    require 'xmlsimple'
 
     puts "Populating Barclays Bike Cycle Hire Stations"
 
-    url = "http://www.tfl.gov.uk/tfl/syndication/feeds/cycle-hire/livecyclehireupdates.xml"
+    url = 'https://api.tfl.gov.uk/BikePoint'
     
     puts "Data URL: '#{url}'."
 
-    xml_data = Net::HTTP.get_response(URI.parse(url)).body
+    json_data = Net::HTTP.get_response(URI.parse(url)).body
 
-    stations = XmlSimple.xml_in(xml_data)
+    stations = JSON.parse(json_data)
 
-    num_stations= stations['station'].size   #or $param.size
+    num_stations = stations.size
     puts "Fetched #{num_stations} stations."
 
     puts "Inserting retrieved stations."
 
-    stations['station'].each do |station|
-
-      tfl_id = station["id"][0]
+    stations.each do |station|
+      tfl_id = station['id'].gsub('BikePoints_', '').to_i
 
       # Workaround for some strange additional spaces in station names
       # eg. "River Street , Clerkenwell" => "River Street, Clerkenwell"
-      name = station["name"][0].gsub(' ,', ',')
+      common_name = station['commonName'].gsub(' ,', ',')
 
-      puts sprintf("ID %3d : %s", tfl_id, name)
+      puts sprintf("ID %3d : %s", tfl_id, common_name)
 
-      @s = Station.new(
-        :tfl_id => tfl_id,
-        :name => name,
-        :lat => station["lat"][0],
-        :long => station["long"][0],
-        :num_docks => station["nbDocks"][0]
+      Station.create!(
+        tfl_id: tfl_id,
+        name: common_name,
+        lat: station['lat'],
+        long: station['lon'],
+        num_docks: station['nbDocks']
       )
-      @s.save
-
-      # Small pause in order to avoid problems hammering database (eg. with SQLite)
-      sleep(0.05)
-
     end
 
     puts "Stations successfully populated."
-
   end
 
   task clear: :environment do
-
     puts "Removing all Barclays Bike Cycle Hire Stations"
 
     existing_stations = Station.all
     puts "Removing all #{existing_stations.length} existing stations..."
     existing_stations.delete_all
-
   end
-
 end
