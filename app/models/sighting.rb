@@ -8,4 +8,6 @@ class Sighting < ActiveRecord::Base
   # validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   do_not_validate_attachment_file_type :photo
 
+  validates :lat, presence: true
+  validates :long, presence: true
 end
