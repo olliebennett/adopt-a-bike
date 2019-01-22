@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140603213855) do
 
-  create_table "bikes", force: true do |t|
+  create_table "bikes", force: :cascade do |t|
     t.string   "name"
     t.integer  "number"
     t.datetime "created_at"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140603213855) do
 
   add_index "bikes", ["sighting_id"], name: "index_bikes_on_sighting_id"
 
-  create_table "sightings", force: true do |t|
+  create_table "sightings", force: :cascade do |t|
     t.float    "lat"
     t.float    "long"
     t.datetime "time"
@@ -32,13 +32,13 @@ ActiveRecord::Schema.define(version: 20140603213855) do
     t.integer  "bike_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
-    t.integer  "photo_file_size"
+    t.integer  "photo_file_size",    limit: 8
     t.datetime "photo_updated_at"
   end
 
   add_index "sightings", ["bike_id"], name: "index_sightings_on_bike_id"
 
-  create_table "stations", force: true do |t|
+  create_table "stations", force: :cascade do |t|
     t.float    "lat"
     t.float    "long"
     t.string   "name"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20140603213855) do
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
