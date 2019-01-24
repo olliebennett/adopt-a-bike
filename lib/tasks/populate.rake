@@ -20,21 +20,24 @@ namespace :stations do
 
     puts "Inserting retrieved stations."
 
-    stations.each do |station|
-      tfl_id = station['id'].gsub('BikePoints_', '').to_i
+    stations.each do |station_data|
+      tfl_id = station_data['id'].gsub('BikePoints_', '').to_i
 
       # Workaround for some strange additional spaces in station names
       # eg. "River Street , Clerkenwell" => "River Street, Clerkenwell"
-      common_name = station['commonName'].gsub(' ,', ',')
+      common_name = station_data['commonName'].gsub(' ,', ',')
 
       puts sprintf("ID %3d : %s", tfl_id, common_name)
+
+      other = {}
+      station_data['additionalProperties'].each { |prop| other[prop['key']] = prop['value'] }
 
       Station.create!(
         tfl_id: tfl_id,
         name: common_name,
-        lat: station['lat'],
-        long: station['lon'],
-        num_docks: station['nbDocks']
+        lat: station_data['lat'],
+        long: station_data['lon'],
+        num_docks: other['NbDocks']
       )
     end
 
