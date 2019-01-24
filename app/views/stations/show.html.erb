@@ -4,7 +4,7 @@
   Station #<%= @station.tfl_id %> : <strong><%= @station.name %></strong>
 </h2>
 
-<img src="http://maps.googleapis.com/maps/api/staticmap?size=500x400&amp;zoom=15&amp;markers=color:blue%7C<%= @station.lat %>,<%= @station.long %>" alt="Map View" class="img-thumbnail" />
+<%= image_tag map_url(@station), alt: 'Map View', class: 'img-thumbnail' %>
 
 <p>
   <strong>Location:</strong>
