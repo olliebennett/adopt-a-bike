@@ -27,3 +27,6 @@ config/initializers/secret_token.rb
 
 # System-generated files (eg. image uploads)
 public/assets/photos
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
